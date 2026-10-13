@@ -1,0 +1,43 @@
+name: Import images
+on:
+  push:
+    paths: [".github/workflows/import-images.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download images from culturacans.lovable.app
+        run: |
+          mkdir -p img
+          B=https://culturacans.lovable.app/__l5e/assets-v1
+          while read id name; do
+            curl -fsSL "$B/$id/$name" -o "img/$name"
+          done <<'LIST'
+          43b9acd3-feb6-4850-8fd6-b5d110895e51 logo-full.webp
+          f7dd6035-c9a0-4b34-b80d-741f225908b8 logo-mark.webp
+          660f523e-eda9-4461-b79e-bae9c2bf4f9e mori-front.webp
+          e8ecb549-3ad5-4646-866b-a5e2996ad5d2 mori-side.webp
+          51fe148e-01c5-4ab5-9839-4121d4f544f2 mori-back.webp
+          f9ceb0dc-941c-4342-890e-766b354e60fc mori-wrap.webp
+          ef2c6b5f-8f75-4459-811c-2976c8e36ff4 malta-front.webp
+          16054669-8d2c-4258-acdb-0f460d458fde malta-side.webp
+          a2190e20-0b08-428a-abe2-8a3c6adf6353 malta-back.webp
+          3d89cc78-d5cf-427f-a4c4-064cdb61f15a malta-wrap.webp
+          fc036f1e-7e26-4eda-8105-8e25f6fbc130 pera-front.webp
+          8bf24ca3-19d6-4e78-96fe-b7559fd52f27 pera-side.webp
+          b96a25a4-27e5-4650-96ea-94831ac7572c pera-back.webp
+          e09e4f4e-a119-499d-bacf-f17b2d609162 pera-wrap.webp
+          a32ced6a-fcab-443b-a927-39d20fc243aa scene-pera.webp
+          LIST
+          ls -la img
+      - name: Commit images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add img
+          git diff --cached --quiet || git commit -m "Add Cultura Cans images"
+          git push
