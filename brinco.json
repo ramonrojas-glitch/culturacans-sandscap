@@ -1,0 +1,28 @@
+{
+  "negocio": "culturacans",
+  "nombre": "Cultura Cans",
+  "nombreLegal": "Cultura Cans",
+  "dominio": "culturacans.sandscap.io",
+  "logo": "/img/logo-full.webp",
+  "favicon": "/img/logo-mark.webp",
+  "color": "#0B3F49",
+  "colorTexto": "#0B3F49",
+  "colorFondo": "#FBF3E4",
+  "fuenteTitulos": "Big Shoulders Display",
+  "fuenteTexto": "Bricolage Grotesque",
+  "googleFonts": "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&display=swap",
+  "prefijoOrden": "CC",
+  "moneda": "RD$",
+  "envio": 200,
+  "entrega": { "delivery": true, "pickup": true, "deliveryMin": 60, "deliveryMax": 90, "pickupMin": 20 },
+  "sectores": ["Piantini", "Naco", "Evaristo Morales", "Serrallés", "Paraíso", "Bella Vista", "Gazcue", "Zona Colonial", "Los Cacicazgos", "Mirador Sur", "Arroyo Hondo", "Los Prados", "El Millón", "Renacimiento", "Ensanche Ozama", "Alma Rosa"],
+  "tienda": { "direccion": "C/ Roberto Pastoriza 210, Naco", "ciudad": "Santo Domingo", "mapa": "https://maps.google.com/?q=Calle+Roberto+Pastoriza+210,+Naco,+Santo+Domingo" },
+  "producto": { "singular": "caja", "plural": "cajas" },
+  "etapas": {
+    "preparando": "Armando tu caja",
+    "coccion": "Enfriando tus latas",
+    "coccionTexto": "Directo de la nevera, a 4 °C, para que lleguen bien frías."
+  },
+  "contacto": { "direccion": "[Dirección del local]", "telefono": "[Teléfono / WhatsApp]", "correo": "[Correo]", "instagram": "[@usuario]" },
+  "idioma": "es"
+}
