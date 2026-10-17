@@ -6,7 +6,7 @@
 <meta name="description" content="Cultura Cans: Morir Soñando, Malta con K y Pera Piña. Las bebidas dominicanas de toda la vida, en lata.">
 <meta property="og:title" content="Cultura Cans">
 <meta property="og:description" content="Sabor de Quisqueya, hecho con amor. Morir Soñando, Malta con K y Pera Piña en lata.">
-<meta property="og:image" content="https://culturacans.sandscap.io/img/logo-full.webp">
+<meta property="og:image" content="https://culturacans.brinco.do/img/logo-full.webp">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/webp" href="/img/logo-mark.webp">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&display=swap">
-<link rel="stylesheet" href="https://piezza.sandscap.com.do/brinco/v1/kit.css">
-<script src="https://piezza.sandscap.com.do/brinco/v1/kit.js" defer></script>
+<link rel="stylesheet" href="https://piezza.brinco.do/brinco/v1/kit.css">
+<script src="https://piezza.brinco.do/brinco/v1/kit.js" defer></script>
 <style>
 /* Layout: flavor-tinted hero stage (giant flavor word behind tilted floating cans, brush confetti) → torn edge →
    cream story with figure-8 photo → scroll-scrubbed word band → podium lineup with 3D spinning cans → sand footer.
@@ -682,7 +682,7 @@ function cartTotal(){ return cartIds().reduce((a,k) => a + cart[k]*PRICE, 0); }
 /* adaptador para Brinco Kit: el carrito es nuestro, el pago lo hace Brinco */
 window.BrincoCart = {
   items(){ return cartIds().map(k => { const f = FLAVORS.find(x => x.id === k);
-    return { name: f.name, detail: 'Caja de 12 · latas de 355 ml', qty: cart[k], unit: PRICE, img: `/img/${k}-front.webp` }; }); },
+    return { name: f.name, detail: 'Caja de 12 · latas de 355 ml', qty: cart[k], unit: PRICE, img: `/img/${k}-front.webp`, sku: { p: k } }; }); },
   total(){ return cartTotal(); },
   clear(){ cart = {}; save(); renderCart(); },
   close(){ closeCart(); }
